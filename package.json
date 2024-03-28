@@ -1,0 +1,14 @@
+{
+  "name": "playwright_automation_testing",
+  "version": "1.0.0",
+  "description": "This a project where I am learning how to automate web applications using Playwright testing framework.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": ["Playwright", "Automation Testing", "Quality Assurance"],
+  "author": "Mario Nizic",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.28"
+  }
+}
