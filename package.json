@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This a project where I am learning how to automate web applications using Playwright testing framework.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test tests/PlaywrightAPITesting.js --project=chromium --headed" 
+  },
   "keywords": ["Playwright", "Automation Testing", "Quality Assurance"],
   "author": "Mario Nizic",
   "license": "ISC",
