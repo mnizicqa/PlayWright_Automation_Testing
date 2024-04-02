@@ -9,6 +9,7 @@ test.beforeAll(async ({ browser }) => {
   await page.locator("#userPassword").fill("Qatester1309");
   await page.locator("[value='Login']").click();
   await page.waitForLoadState("networkidle");
+  // Session storage in Playwright
   await context.storageState({ path: "state.json" });
   webContext = await browser.newContext({ storageState: "state.json" });
 });
