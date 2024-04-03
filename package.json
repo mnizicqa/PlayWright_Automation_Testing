@@ -4,13 +4,20 @@
   "description": "This a project where I am learning how to automate web applications using Playwright testing framework.",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/PlaywrightAPITesting.js --project=chromium --headed" 
+    "test": "npx playwright test tests/PlaywrightAPITesting.js --project=chromium --headed"
   },
-  "keywords": ["Playwright", "Automation Testing", "Quality Assurance"],
+  "keywords": [
+    "Playwright",
+    "Automation Testing",
+    "Quality Assurance"
+  ],
   "author": "Mario Nizic",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.28"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }
