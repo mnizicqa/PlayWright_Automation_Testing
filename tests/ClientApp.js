@@ -1,12 +1,12 @@
 const { test, expect } = require("@playwright/test");
 
-test("Client App Successful Login", async ({ page }) => {
+test.only("Client App Successful Login", async ({ page }) => {
   const products = page.locator(".card-body");
   const productName = "ADIDAS ORIGINAL";
-  const email = "anshika@gmail.com";
+  const email = "mariotest@gmail.com";
   await page.goto("https://rahulshettyacademy.com/client");
   await page.locator("#userEmail").fill(email);
-  await page.locator("#userPassword").fill("Iamking@000");
+  await page.locator("#userPassword").fill("Qatester1309");
   await page.locator("[value='Login']").click();
   await products.first().waitFor();
   const titles = await products.allTextContents();

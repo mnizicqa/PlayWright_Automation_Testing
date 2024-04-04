@@ -27,13 +27,6 @@ async function readExcelTest(worksheet, searchText) {
   return output;
 }
 
-// writeExcelTest(
-//   "Mango",
-//   "350",
-//   { rowChange: 0, colChange: 2 },
-//   "D:/excelDownloadTest.xlsx"
-// );
-
 test("File Download and Upload Validation", async ({ page }) => {
   const desiredFruit = "Mango";
   const desiredPrice = "350";
