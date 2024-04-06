@@ -1,11 +1,9 @@
 const { test, expect } = require("@playwright/test");
-const { LoginPage } = require("../pageobjects/LoginPage");
-const { DashboardPage } = require("../pageobjects/DashboardPage");
-const { CartPage } = require("../pageobjects/CartPage");
-const { OrderDetailsPage } = require("../pageobjects/OrderDetailsPage");
-const { OrderHistoryPage } = require("../pageobjects/OrderHistoryPage");
+
+const { POManager } = require("../pageobjects/POManager");
 
 test("Client App Successful Login", async ({ page }) => {
+  const poManager = new POManager(page);
   const productName = "ADIDAS ORIGINAL";
   const username = "mariotest@gmail.com";
   const password = "Qatester1309";
@@ -13,26 +11,26 @@ test("Client App Successful Login", async ({ page }) => {
   const selectedCountry = "Bosnia and Herzegowina";
   const title = "Your Orders";
 
-  const loginPage = new LoginPage(page);
+  const loginPage = poManager.getLoginPage();
   await loginPage.navigateTo();
   await loginPage.successfulLogin(username, password);
 
-  const dashboardPage = new DashboardPage(page);
+  const dashboardPage = poManager.getDashBoardPage();
   await dashboardPage.selectAndAddProductToCart(productName);
   await dashboardPage.clickOnCart();
 
-  const cartPage = new CartPage(page);
+  const cartPage = poManager.getCartPage();
   await cartPage.checkIfProductIsDisplayed(productName);
   await cartPage.clickOnCheckout();
 
-  const orderDetailsPage = new OrderDetailsPage(page);
+  const orderDetailsPage = poManager.getOrderDetailsPage();
   await orderDetailsPage.typeDesiredCountry(desiredInput);
   await orderDetailsPage.selectDesiredCountryFromDropdown(selectedCountry);
   orderDetailsPage.verifyIfItIsTheSameUsernameInTheInputField(username);
   const orderId = await orderDetailsPage.placeOrder();
   console.log(orderId);
 
-  const orderHistoryPage = new OrderHistoryPage(page);
+  const orderHistoryPage = poManager.getOrderHistoryPage();
   await orderHistoryPage.clickOnOrdersLink();
   await orderHistoryPage.verifyOrderHistoryTitle(title);
   await orderHistoryPage.checkIfOrderIdIsInOrderHistory(orderId);
