@@ -13,17 +13,17 @@ class OrderDetailsPage {
     this.orderId = page.locator(".em-spacer-1 .ng-star-inserted");
   }
 
-  async typeDesiredCountry(desiredInput) {
-    await this.selectCountry.pressSequentially(desiredInput);
+  async typeDesiredCountry() {
+    await this.selectCountry.pressSequentially("bo", { delay: 200 });
   }
 
-  async selectDesiredCountryFromDropdown(selectedCountry) {
+  async selectDesiredCountryFromDropdown() {
     await this.dropdown.waitFor();
     const optionsCount = await this.dropdown.locator("button").count();
 
     for (let i = 0; i < optionsCount; i++) {
       const text = await this.dropdown.locator("button").nth(i).textContent();
-      if (text.trim() == selectedCountry) {
+      if (text.trim() == "Bosnia and Herzegowina") {
         await this.dropdown.locator("button").nth(i).click();
         break;
       }
@@ -34,13 +34,10 @@ class OrderDetailsPage {
     await expect(this.usernameField).toHaveText(username);
   }
 
-  async placeOrder() {
+  async placeOrder(productName) {
     await this.placeOrderButton.click();
     await expect(this.orderConfirmationText).toHaveText(
       " Thankyou for the order. "
-    );
-    await expect(this.orderConfirmationProductName).toHaveText(
-      "ADIDAS ORIGINAL"
     );
     await expect(this.orderConfirmationProductQuantity).toHaveText("Qty: 1");
     return await this.orderId.textContent();

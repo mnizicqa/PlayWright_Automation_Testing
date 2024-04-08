@@ -14,8 +14,8 @@ class OrderHistoryPage {
     await this.orderLink.click();
   }
 
-  async verifyOrderHistoryTitle(title) {
-    await expect(this.orderHistoryTitle).toHaveText(title);
+  async verifyOrderHistoryTitle() {
+    await expect(this.orderHistoryTitle).toHaveText("Your Orders");
   }
 
   async checkIfOrderIdIsInOrderHistory(orderId) {

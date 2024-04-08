@@ -1,8 +1,12 @@
-{
-    "username":"mariotest@gmail.com",
-    "password": "Qatester1309",
-    "productName": "ADIDAS ORIGINAL",
-    "desiredInput": "bo",
-    "selectedCountry": "Bosnia and Herzegowina",
-    "title":"Your Orders"
-}
+[
+    {
+        "username":"mariotest@gmail.com",
+        "password": "Qatester1309",
+        "productName": "ADIDAS ORIGINAL"
+    },
+    {
+        "username": "anshika@gmail.com",
+        "password": "Iamking@000",
+        "productName": "IPHONE 13 PRO"
+    }
+]
