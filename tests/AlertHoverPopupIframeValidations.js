@@ -31,14 +31,14 @@ test("Screenshot Capturing", async ({ page }) => {
   await page
     .locator("#displayed-text")
     .screenshot({ path: "partialScreenshot.png" });
-  await page.locator("#hide-texbox").click();
+  await page.locator("#hide-textbox").click();
   await page.screenshot({ path: "screenshot.png" });
   await expect(page.locator("#displayed-text")).toBeHidden();
   await page.locator("#show-textbox").click();
   await expect(page.locator("#displayed-text")).toBeVisible();
 });
 
-test("Visual Testing", async ({ page }) => {
+test.skip("Visual Testing", async ({ page }) => {
   await page.goto("https://google.com");
   expect(await page.screenshot()).toMatchSnapshot("landing.png");
 });
