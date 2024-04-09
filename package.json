@@ -10,8 +10,8 @@
     "APITests": "npx playwright test --project=chromium --grep @API",
     "chromeNewConfig": "npx playwright test --project=chromium --config playwright.config-new.js",
     "safariNewConfig": "npx playwright test --project=webkit --config playwright.config-new.js",
-    "testsAllureReport": "npx playwright test --project=chromium --reporter=line,allure-playwright",
-    "webTestsAllureReport": "npx playwright test --project=chromium --grep @Web --reporter=line,allure-playwright",
+    "testsAllureReport": "npx playwright test --project=chromium --reporter=line,allure-playwright && allure generate allure-results --clean",
+    "webTestsAllureReport": "npx playwright test --project=chromium --grep @Web --reporter=line,allure-playwright && allure generate allure-results --clean",
     "APITestsAllureReport": "npx playwright test --project=chromium --grep @API --reporter=line,allure-playwright && allure generate allure-results --clean"
   },
   "keywords": [
