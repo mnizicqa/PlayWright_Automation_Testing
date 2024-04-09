@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Client App Successful Login", async ({ page }) => {
+test("@Web Client App Successful Login", async ({ page }) => {
   const products = page.locator(".card-body");
   const productName = "ADIDAS ORIGINAL";
   const email = "mariotest@gmail.com";

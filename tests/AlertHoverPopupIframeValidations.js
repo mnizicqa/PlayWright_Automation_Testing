@@ -25,7 +25,7 @@ test("@Web Alert,Hover,Popup,Iframe Validations", async ({ page }) => {
   console.log(numberOfStudents);
 });
 
-test("Screenshot Capturing", async ({ page }) => {
+test("@Web Screenshot Capturing", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
   await expect(page.locator("#displayed-text")).toBeVisible();
   await page
@@ -38,7 +38,7 @@ test("Screenshot Capturing", async ({ page }) => {
   await expect(page.locator("#displayed-text")).toBeVisible();
 });
 
-test("Visual Testing", async ({ page }) => {
+test("@Web Visual Testing", async ({ page }) => {
   await page.goto("https://google.com");
   expect(await page.screenshot()).toMatchSnapshot("landing.png");
 });

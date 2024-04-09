@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Security Testing Request Intercept", async ({ page }) => {
+test("@Web Security Testing Request Intercept", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client");
   await page.locator("#userEmail").fill("mariotest@gmail.com");
   await page.locator("#userPassword").fill("Qatester1309");

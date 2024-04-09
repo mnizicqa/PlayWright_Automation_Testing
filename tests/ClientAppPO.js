@@ -38,21 +38,24 @@ for (const data of testData) {
   });
 }
 
-customTest("Client App Successful Login", async ({ page, testDataOrder }) => {
-  const poManager = new POManager(page);
+customTest(
+  "@Web Client App Successful Login",
+  async ({ page, testDataOrder }) => {
+    const poManager = new POManager(page);
 
-  const loginPage = poManager.getLoginPage();
-  await loginPage.navigateTo();
-  await loginPage.successfulLogin(
-    testDataOrder.username,
-    testDataOrder.password
-  );
+    const loginPage = poManager.getLoginPage();
+    await loginPage.navigateTo();
+    await loginPage.successfulLogin(
+      testDataOrder.username,
+      testDataOrder.password
+    );
 
-  const dashboardPage = poManager.getDashBoardPage();
-  await dashboardPage.selectAndAddProductToCart(testDataOrder.productName);
-  await dashboardPage.clickOnCart();
+    const dashboardPage = poManager.getDashBoardPage();
+    await dashboardPage.selectAndAddProductToCart(testDataOrder.productName);
+    await dashboardPage.clickOnCart();
 
-  const cartPage = poManager.getCartPage();
-  await cartPage.checkIfProductIsDisplayed(testDataOrder.productName);
-  await cartPage.clickOnCheckout();
-});
+    const cartPage = poManager.getCartPage();
+    await cartPage.checkIfProductIsDisplayed(testDataOrder.productName);
+    await cartPage.clickOnCheckout();
+  }
+);

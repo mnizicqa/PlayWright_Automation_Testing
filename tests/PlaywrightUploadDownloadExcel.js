@@ -27,7 +27,7 @@ async function readExcelTest(worksheet, searchText) {
   return output;
 }
 
-test("File Download and Upload Validation", async ({ page }) => {
+test("@Web File Download and Upload Validation", async ({ page }) => {
   const desiredFruit = "Mango";
   const desiredPrice = "350";
   await page.goto("https://rahulshettyacademy.com/upload-download-test/");

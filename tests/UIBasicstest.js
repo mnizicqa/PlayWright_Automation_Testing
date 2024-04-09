@@ -31,7 +31,7 @@ test("@Web Browser Context Playwright Test", async ({ browser }) => {
   console.log(allTitles);
 });
 
-test("Page Playwright Test", async ({ page }) => {
+test("@Web Page Playwright Test", async ({ page }) => {
   await page.goto("https://google.com");
   await expect(page).toHaveTitle("Google");
 });
@@ -53,7 +53,7 @@ test(" @Web UI controls", async ({ page }) => {
   await expect(documentLink).toHaveAttribute("class", "blinkingText");
 });
 
-test("Child window handle", async ({ browser }) => {
+test("@Web Child window handle", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   const userName = page.locator("#username");
