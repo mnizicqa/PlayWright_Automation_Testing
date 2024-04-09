@@ -13,6 +13,7 @@ const { defineConfig, devices } = require("@playwright/test");
 module.exports = defineConfig({
   testDir: "./tests",
   testMatch: "tests/**/*.js",
+  retries: process.env.CI ? 2 : 0,
   /* Run tests in files in parallel */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

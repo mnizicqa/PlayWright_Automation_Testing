@@ -14,7 +14,7 @@ test.beforeAll(async ({ browser }) => {
   webContext = await browser.newContext({ storageState: "state.json" });
 });
 
-test("Client App Successful Login", async () => {
+test("@API Client App Successful Login Using Storage State", async () => {
   const productName = "ADIDAS ORIGINAL";
   const email = "mariotest@gmail.com";
   const page = await webContext.newPage();

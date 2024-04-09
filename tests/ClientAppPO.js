@@ -6,7 +6,7 @@ const testData = JSON.parse(
 );
 
 for (const data of testData) {
-  test(`Client App Successful Login for ${data.productName}`, async ({
+  test(`@Web Client App Successful Login for ${data.productName}`, async ({
     page,
   }) => {
     const poManager = new POManager(page);
@@ -38,24 +38,21 @@ for (const data of testData) {
   });
 }
 
-customTest.only(
-  "Client App Successful Login",
-  async ({ page, testDataOrder }) => {
-    const poManager = new POManager(page);
+customTest("Client App Successful Login", async ({ page, testDataOrder }) => {
+  const poManager = new POManager(page);
 
-    const loginPage = poManager.getLoginPage();
-    await loginPage.navigateTo();
-    await loginPage.successfulLogin(
-      testDataOrder.username,
-      testDataOrder.password
-    );
+  const loginPage = poManager.getLoginPage();
+  await loginPage.navigateTo();
+  await loginPage.successfulLogin(
+    testDataOrder.username,
+    testDataOrder.password
+  );
 
-    const dashboardPage = poManager.getDashBoardPage();
-    await dashboardPage.selectAndAddProductToCart(testDataOrder.productName);
-    await dashboardPage.clickOnCart();
+  const dashboardPage = poManager.getDashBoardPage();
+  await dashboardPage.selectAndAddProductToCart(testDataOrder.productName);
+  await dashboardPage.clickOnCart();
 
-    const cartPage = poManager.getCartPage();
-    await cartPage.checkIfProductIsDisplayed(testDataOrder.productName);
-    await cartPage.clickOnCheckout();
-  }
-);
+  const cartPage = poManager.getCartPage();
+  await cartPage.checkIfProductIsDisplayed(testDataOrder.productName);
+  await cartPage.clickOnCheckout();
+});

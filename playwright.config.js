@@ -16,7 +16,7 @@ module.exports = defineConfig({
   /* Run tests in files in parallel */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  workers: 1,
+  workers: process.env.CI ? 2 : undefined,
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
@@ -24,7 +24,7 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on",
     screenshot: "on",
-    headless: false,
+    headless: true,
   },
 
   /* Configure projects for major browsers */

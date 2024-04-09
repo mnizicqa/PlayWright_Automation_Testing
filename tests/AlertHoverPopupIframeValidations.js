@@ -1,6 +1,8 @@
 const { test, expect } = require("@playwright/test");
 
-test("Alert,Hover,Popup,Iframe Validations", async ({ page }) => {
+test.describe.configure({ mode: "parallel" });
+
+test("@Web Alert,Hover,Popup,Iframe Validations", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
   await expect(page.locator("#displayed-text")).toBeVisible();
   await page.locator("#hide-textbox").click();
@@ -13,7 +15,6 @@ test("Alert,Hover,Popup,Iframe Validations", async ({ page }) => {
   await page.locator("#mousehover").hover();
   await expect(page.locator(".mouse-hover-content")).toBeVisible();
   await page.locator(".mouse-hover-content a").first().click();
-  await page.pause();
 
   // Iframes in Playwright
   const iframePage = page.frameLocator("#courses-iframe");
@@ -30,7 +31,7 @@ test("Screenshot Capturing", async ({ page }) => {
   await page
     .locator("#displayed-text")
     .screenshot({ path: "partialScreenshot.png" });
-  await page.locator("#hide-textbox").click();
+  await page.locator("#hide-texbox").click();
   await page.screenshot({ path: "screenshot.png" });
   await expect(page.locator("#displayed-text")).toBeHidden();
   await page.locator("#show-textbox").click();

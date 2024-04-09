@@ -1,6 +1,8 @@
 const { test, expect } = require("@playwright/test");
 
-test.only("Browser Context Playwright Test", async ({ browser }) => {
+test.describe.configure({ mode: "serial" });
+
+test("@Web Browser Context Playwright Test", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   // page.route("**/*.css", (route) => route.abort());
@@ -34,10 +36,8 @@ test("Page Playwright Test", async ({ page }) => {
   await expect(page).toHaveTitle("Google");
 });
 
-test("UI controls", async ({ page }) => {
+test(" @Web UI controls", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-  const userName = page.locator("#username");
-  const signIn = page.locator("#signInBtn");
   const dropdown = page.locator("select.form-control");
   const documentLink = page.locator("[href*='documents-request']");
 
