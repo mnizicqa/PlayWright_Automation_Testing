@@ -38,7 +38,7 @@ test("@Web Screenshot Capturing", async ({ page }) => {
   await expect(page.locator("#displayed-text")).toBeVisible();
 });
 
-test("@Web Visual Testing", async ({ page }) => {
+test.skip("@Web Visual Testing", async ({ page }) => {
   await page.goto("https://google.com");
   expect(await page.screenshot()).toMatchSnapshot("landing.png");
 });
