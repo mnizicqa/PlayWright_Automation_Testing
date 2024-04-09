@@ -12,7 +12,7 @@
     "safariNewConfig": "npx playwright test --project=webkit --config playwright.config-new.js",
     "testsAllureReport": "npx playwright test --project=chromium --reporter=line,allure-playwright",
     "webTestsAllureReport": "npx playwright test --project=chromium --grep @Web --reporter=line,allure-playwright",
-    "APITestsAllureReport": "npx playwright test --project=chromium --grep @API --reporter=line,allure-playwright"
+    "APITestsAllureReport": "npx playwright test --project=chromium --grep @API --reporter=line,allure-playwright && allure generate allure-results --clean"
   },
   "keywords": [
     "Playwright",
