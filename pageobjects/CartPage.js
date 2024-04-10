@@ -8,7 +8,7 @@ class CartPage {
 
   async checkIfProductIsDisplayed(productName) {
     await this.cartProducts.first().waitFor();
-    expect(this.getProductLocator(productName)).toBeVisible();
+    await expect(this.getProductLocator(productName)).toBeVisible();
   }
 
   async clickOnCheckout() {

@@ -27,6 +27,7 @@
     "allure-playwright": "^2.15.1"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^10.4.0",
     "exceljs": "^4.4.0"
   }
 }
