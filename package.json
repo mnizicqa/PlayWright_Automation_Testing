@@ -15,10 +15,7 @@
     "APITestsAllureReport": "npx playwright test --project=chromium --grep @API --reporter=line,allure-playwright && allure generate allure-results --clean",
     "testsCucumber": "npx cucumber-js --exit",
     "testsCucumberRegression": "npx cucumber-js --tags \"@Regression\" --exit",
-    "testsCucumberValidation": "npx cucumber-js --tags \"@Validation\" --exit",
-    "testsCucumberHTMLReport": "npx cucumber-js --exit --format html:cucumber-report.html",
-    "testsCucumberRegressionHTMLReport":"npx cucumber-js --tags \"@Regression\" --exit --format html:cucumber-report.html",
-    "testsCucumberValidationHTMLReport": "npx cucumber-js --tags \"@Validation\" --exit --format html:cucumber-report.html"
+    "testsCucumberValidation": "npx cucumber-js --tags \"@Validation\" --exit"
   },
   "keywords": [
     "Playwright",
