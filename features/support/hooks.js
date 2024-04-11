@@ -2,7 +2,7 @@ const { Before, After, AfterStep, Status } = require("@cucumber/cucumber");
 const { POManager } = require("../../pageobjects/POManager");
 const playwright = require("@playwright/test");
 
-Before({ timeout: 10 * 1000 }, async function () {
+Before({ timeout: 20 * 1000 }, async function () {
   const browser = await playwright.chromium.launch({ headless: false });
   const context = await browser.newContext();
   this.page = await context.newPage();
