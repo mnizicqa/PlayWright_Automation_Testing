@@ -4,8 +4,9 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 package-lock.json
-allure-results
-allure-report
+allure-results/
+allure-report/
 *.png
 *.jpg
 *.jpeg
+*.html

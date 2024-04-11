@@ -1,4 +1,5 @@
 Feature: Ecommerce E2E Validations
+    @Regression
     Scenario: Placing the Order On Ecommerce Website
         Given I login to e-commerce website with "mariotest@gmail.com" and "Qatester1309"
         When I add "ADIDAS ORIGINAL"
