@@ -1,12 +1,13 @@
 const { test } = require("@playwright/test");
-const { RegisterPage } = require("../pageobjects/RegisterPage");
 const registerAccountData = JSON.parse(
   JSON.stringify(require("../utilities/registerAccountData.json"))
 );
+const { POManager } = require("../pageobjects/POManager");
 
 test("@Web Ecommerce E2E successful registration", async ({ page }) => {
-  const registerPage = new RegisterPage(page);
+  const poManager = new POManager(page);
 
+  const registerPage = poManager.getRegisterPage();
   await registerPage.navigateTo();
   await registerPage.clickOnRegisterButton();
   await registerPage.enterBasicInformation(
