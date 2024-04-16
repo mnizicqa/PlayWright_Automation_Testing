@@ -4,12 +4,14 @@ const registerAccountData = JSON.parse(
 );
 const { POManager } = require("../pageobjects/POManager");
 
-test("@Web Ecommerce E2E successful registration", async ({ page }) => {
+test("@Web E-commerce E2E successful registration", async ({ page }) => {
   const poManager = new POManager(page);
-
+  const title = "Register";
   const registerPage = poManager.getRegisterPage();
   await registerPage.navigateTo();
   await registerPage.clickOnRegisterButton();
+  await registerPage.verifyTitle(title);
+
   await registerPage.enterBasicInformation(
     registerAccountData.firstName,
     registerAccountData.lastName,
@@ -23,7 +25,6 @@ test("@Web Ecommerce E2E successful registration", async ({ page }) => {
   await registerPage.repeatPassword(registerAccountData.confirmPassword);
 
   await registerPage.selectCheckbox();
-  await page.pause();
   await registerPage.registerAccount();
   await registerPage.verifyAccountIsCreated();
 });

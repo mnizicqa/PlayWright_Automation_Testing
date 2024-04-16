@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("@Web Ecommerce E2E Testing", async ({ page }) => {
+test("@Web E-commerce E2E Testing", async ({ page }) => {
   const products = page.locator(".card-body");
   const productName = "ADIDAS ORIGINAL";
   const email = "mariotest@gmail.com";

@@ -6,7 +6,7 @@ const testData = JSON.parse(
 );
 
 for (const data of testData) {
-  test(`@Web Ecommerce E2E Testing Using Page Object Model for ${data.productName}`, async ({
+  test(`@Web E-commerce E2E Testing Using Page Object Model for ${data.productName}`, async ({
     page,
   }) => {
     const poManager = new POManager(page);
