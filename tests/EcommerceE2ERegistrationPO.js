@@ -7,6 +7,7 @@ const { POManager } = require("../pageobjects/POManager");
 test("@Web E-commerce E2E successful registration", async ({ page }) => {
   const poManager = new POManager(page);
   const title = "Register";
+
   const registerPage = poManager.getRegisterPage();
   await registerPage.navigateTo();
   await registerPage.clickOnRegisterButton();
