@@ -27,25 +27,29 @@ async function readExcelTest(worksheet, searchText) {
   return output;
 }
 
-test("@Web File Download and Upload Validation", async ({ page }) => {
-  const desiredFruit = "Mango";
-  const desiredPrice = "350";
-  await page.goto("https://rahulshettyacademy.com/upload-download-test/");
-  const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Download" }).click();
-  const downloadedFile = await downloadPromise;
-  await downloadedFile.saveAs("C:/Users/mario/Downloads/download.xlsx");
-  writeExcelTest(
-    desiredFruit,
-    desiredPrice,
-    { rowChange: 0, colChange: 2 },
-    "C:/Users/mario/Downloads/download.xlsx"
-  );
-  await page.locator("#fileinput").click();
-  await page
-    .locator("#fileinput")
-    .setInputFiles("C:/Users/mario/Downloads/download.xlsx");
-  const textToLocate = page.getByText(desiredFruit);
-  const desiredRow = page.locator("#row-0").filter({ has: textToLocate });
-  await expect(desiredRow.locator("#cell-4-undefined")).toContainText("350");
-});
+test(
+  "File Download and Upload Validation",
+  { tag: "@Web" },
+  async ({ page }) => {
+    const desiredFruit = "Mango";
+    const desiredPrice = "350";
+    await page.goto("https://rahulshettyacademy.com/upload-download-test/");
+    const downloadPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: "Download" }).click();
+    const downloadedFile = await downloadPromise;
+    await downloadedFile.saveAs("C:/Users/mario/Downloads/download.xlsx");
+    writeExcelTest(
+      desiredFruit,
+      desiredPrice,
+      { rowChange: 0, colChange: 2 },
+      "C:/Users/mario/Downloads/download.xlsx"
+    );
+    await page.locator("#fileinput").click();
+    await page
+      .locator("#fileinput")
+      .setInputFiles("C:/Users/mario/Downloads/download.xlsx");
+    const textToLocate = page.getByText(desiredFruit);
+    const desiredRow = page.locator("#row-0").filter({ has: textToLocate });
+    await expect(desiredRow.locator("#cell-4-undefined")).toContainText("350");
+  }
+);
