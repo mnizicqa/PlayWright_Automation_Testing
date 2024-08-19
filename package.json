@@ -27,7 +27,8 @@
   "devDependencies": {
     "@playwright/test": "^1.43.0",
     "@types/node": "^20.11.28",
-    "allure-playwright": "^2.15.1"
+    "allure-playwright": "^2.15.1",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.4.0",
