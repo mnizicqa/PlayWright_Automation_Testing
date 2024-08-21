@@ -45,7 +45,7 @@ export class OrderDetailsPage {
     await expect(this.usernameField).toHaveText(username);
   }
 
-  async placeOrder(productName:string) {
+  async placeOrder() {
     await this.placeOrderButton.click();
     await expect(this.orderConfirmationText).toHaveText(
       " Thankyou for the order. "

@@ -1,6 +1,6 @@
-const { test, expect } = require("@playwright/test");
-const { customTest } = require("../utilities/TestBase");
-const { POManager } = require("../pageobjects/POManager");
+import {test, expect} from "@playwright/test";
+import { customTest } from "../utilities_ts/TestBase";
+import {POManager} from "../pageobjects_ts/POManager";
 const testData = JSON.parse(
   JSON.stringify(require("../utilities/placeOrderTestData.json"))
 );
@@ -31,7 +31,8 @@ for (const data of testData) {
       orderDetailsPage.verifyIfItIsTheSameUsernameInTheInputField(
         data.username
       );
-      const orderId = await orderDetailsPage.placeOrder();
+      let orderId:any;
+      orderId = await orderDetailsPage.placeOrder();
       console.log(orderId);
 
       const orderHistoryPage = poManager.getOrderHistoryPage();
