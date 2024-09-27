@@ -34,7 +34,7 @@ export class RegisterPage {
     await this.registerButton.click();
   }
 
-  async verifyTitle(title) {
+  async verifyTitle(title:string) {
     await expect(this.title).toHaveText(title);
   }
 
